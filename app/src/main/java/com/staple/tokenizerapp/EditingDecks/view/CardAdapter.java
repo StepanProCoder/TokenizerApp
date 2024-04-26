@@ -45,17 +45,27 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
-        Card card = cardList.get(position);
-        holder.cardNameTextView.setText(card.getName());
-        Picasso.get().load(card.getPicUrl()).into(holder.cardImageView);
-        holder.itemView.setOnClickListener(view -> {
-            onCardClickListener.onCardClick(card);
-        });
+        if (position == 0)
+        {
+            holder.cardNameTextView.setText("Add a card");
+            holder.itemView.setOnClickListener(view -> {
+                onCardClickListener.onCardClick(new Card());
+            });
+        }
+        else
+        {
+            Card card = cardList.get(position - 1);
+            holder.cardNameTextView.setText(card.getName());
+            Picasso.get().load(card.getPicUrl()).into(holder.cardImageView);
+            holder.itemView.setOnClickListener(view -> {
+                onCardClickListener.onCardClick(card);
+            });
+        }
     }
 
     @Override
     public int getItemCount() {
-        return cardList.size();
+        return cardList.size() + 1;
     }
 
     public static class CardViewHolder extends RecyclerView.ViewHolder {

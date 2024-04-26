@@ -22,8 +22,9 @@
             android:id="@+id/card_name_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:padding="16dp"
             android:textStyle="bold"
+            android:textSize="18sp"
             android:layout_marginTop="8dp"
             android:text="Card Name"
             android:gravity="center" />

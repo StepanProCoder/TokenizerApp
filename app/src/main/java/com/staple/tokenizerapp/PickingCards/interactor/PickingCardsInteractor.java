@@ -1,8 +1,10 @@
-package com.staple.tokenizerapp.EditingDecks.interactor;
+package com.staple.tokenizerapp.PickingCards.interactor;
 
 import android.util.Log;
 
+import com.staple.tokenizerapp.EditingDecks.interactor.CardApi;
 import com.staple.tokenizerapp.EditingDecks.view.CardAdapter;
+import com.staple.tokenizerapp.PickingCards.view.PickingCardsAdapter;
 import com.staple.tokenizerapp.PickingDecks.entity.Card;
 import com.staple.tokenizerapp.PickingDecks.entity.Deck;
 
@@ -15,14 +17,14 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class EditingDecksInteractor
+public class PickingCardsInteractor
 {
     private List<Card> cardList;
-    private CardAdapter adapter;
+    private PickingCardsAdapter adapter;
     private CardApi cardApi;
     private Deck currentDeck;
 
-    public EditingDecksInteractor(CardAdapter adapter, Deck currentDeck)
+    public PickingCardsInteractor(PickingCardsAdapter adapter, Deck currentDeck)
     {
         this.currentDeck = currentDeck;
         this.cardList = new ArrayList<>();
@@ -35,7 +37,21 @@ public class EditingDecksInteractor
                 .build();
 
         cardApi = retrofit.create(CardApi.class);
-        requestChosenDeck(currentDeck);
+
+        if (currentDeck == null)
+        {
+            requestAllCards();
+        }
+        else
+        {
+            requestChosenDeck(currentDeck);
+        }
+    }
+
+    private void requestAllCards()
+    {
+        Log.d("REQUEST", "ALL CARDS");
+        //TODO request all cards
     }
 
     public void requestChosenDeck(Deck deck)
@@ -56,3 +72,4 @@ public class EditingDecksInteractor
         });
     }
 }
+

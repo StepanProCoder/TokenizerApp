@@ -43,16 +43,26 @@ public class DeckAdapter extends RecyclerView.Adapter<DeckAdapter.DeckViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull DeckViewHolder holder, int position) {
-        Deck deck = deckList.get(position);
-        holder.deckNameTextView.setText(deck.getName());
-        holder.itemView.setOnClickListener(view -> {
-            onDeckClickListener.onDeckClick(deck);
-        });
+        if (position == 0)
+        {
+            holder.deckNameTextView.setText("Add new deck");
+            holder.itemView.setOnClickListener(view -> {
+                onDeckClickListener.onDeckClick(new Deck());
+            });
+        }
+        else
+        {
+            Deck deck = deckList.get(position - 1);
+            holder.deckNameTextView.setText(deck.getName());
+            holder.itemView.setOnClickListener(view -> {
+                onDeckClickListener.onDeckClick(deck);
+            });
+        }
     }
 
     @Override
     public int getItemCount() {
-        return deckList.size();
+        return deckList.size() + 1;
     }
 
     public static class DeckViewHolder extends RecyclerView.ViewHolder {

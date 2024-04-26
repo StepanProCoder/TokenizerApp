@@ -9,21 +9,21 @@
         android:id="@+id/editTextCardView"
         android:layout_width="329dp"
         android:layout_height="42dp"
-        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <EditText
-            android:id="@+id/deckNameEditText"
+        <TextView
+            android:id="@+id/deckNameTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Deck Name"/>
+            android:padding="8dp"
+            android:textSize="18sp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/editingDecksRecyclerView"
+        android:id="@+id/pickingCardsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"

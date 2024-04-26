@@ -32,7 +32,7 @@ public class PickingDecksActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_picking_decks);
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.pickingDecksRecyclerView);
         adapter = new DeckAdapter((Deck deck) -> { presenter.onDeckClick(deck); });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
