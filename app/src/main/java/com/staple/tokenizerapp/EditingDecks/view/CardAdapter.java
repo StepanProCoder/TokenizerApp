@@ -3,11 +3,13 @@ package com.staple.tokenizerapp.EditingDecks.view;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
 import com.staple.tokenizerapp.PickingDecks.entity.Card;
 import com.staple.tokenizerapp.PickingDecks.entity.Deck;
 import com.staple.tokenizerapp.R;
@@ -45,6 +47,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     public void onBindViewHolder(@NonNull CardViewHolder holder, int position) {
         Card card = cardList.get(position);
         holder.cardNameTextView.setText(card.getName());
+        Picasso.get().load(card.getPicUrl()).into(holder.cardImageView);
         holder.itemView.setOnClickListener(view -> {
             onCardClickListener.onCardClick(card);
         });
@@ -58,10 +61,12 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
     public static class CardViewHolder extends RecyclerView.ViewHolder {
 
         TextView cardNameTextView;
+        ImageView cardImageView;
 
         public CardViewHolder(@NonNull View itemView) {
             super(itemView);
             cardNameTextView = itemView.findViewById(R.id.card_name_text_view);
+            cardImageView = itemView.findViewById(R.id.card_image_view);
         }
     }
 }
