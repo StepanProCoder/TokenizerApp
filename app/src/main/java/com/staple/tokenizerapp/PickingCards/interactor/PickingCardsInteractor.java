@@ -66,8 +66,20 @@ public class PickingCardsInteractor
 
     private void requestAllCards()
     {
-        Log.d("REQUEST", "ALL CARDS");
-        //TODO request all cards
+        Call<List<Card>> call = cardApi.getAllCards();
+        call.enqueue(new Callback<List<Card>>() {
+            @Override
+            public void onResponse(Call<List<Card>> call, Response<List<Card>> response) {
+                cardList.addAll(response.body());
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailure(Call<List<Card>> call, Throwable t) {
+                Log.d("RETROFIT",t.getMessage());
+                // Обработка ошибки
+            }
+        });
     }
 
     public void requestChosenDeck(Deck deck)

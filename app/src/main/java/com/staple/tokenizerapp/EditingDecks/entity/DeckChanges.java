@@ -2,15 +2,16 @@ package com.staple.tokenizerapp.EditingDecks.entity;
 
 import com.staple.tokenizerapp.PickingDecks.entity.Card;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DeckChanges {
-    private String deckId;
-    private List<Card> deletedCards;
-    private List<Card> addedCards;
+    private Integer deckId;
+    private List<Card> deletedCards = new ArrayList<>();
+    private List<Card> addedCards = new ArrayList<>();
     private String newName;
 
-    public String getDeckId() {
+    public Integer getDeckId() {
         return deckId;
     }
 
@@ -26,7 +27,7 @@ public class DeckChanges {
         return newName;
     }
 
-    public void setDeckId(String deckId) {
+    public void setDeckId(Integer deckId) {
         this.deckId = deckId;
     }
 

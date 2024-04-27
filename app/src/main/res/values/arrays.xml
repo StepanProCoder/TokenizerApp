@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="deck_actions_array">
-        <item>Редактировать</item>
-        <item>Удалить</item>
-        <item>Играть</item>
+        <item>Redact</item>
+        <item>Delete</item>
+        <item>Play</item>
+    </string-array>
+    <string-array name="card_actions_array">
+        <item>Delete</item>
     </string-array>
 </resources>

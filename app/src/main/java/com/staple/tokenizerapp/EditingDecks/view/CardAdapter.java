@@ -48,6 +48,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardViewHolder
         if (position == 0)
         {
             holder.cardNameTextView.setText("Add a card");
+            holder.cardImageView.setImageDrawable(null);
             holder.itemView.setOnClickListener(view -> {
                 onCardClickListener.onCardClick(new Card());
             });

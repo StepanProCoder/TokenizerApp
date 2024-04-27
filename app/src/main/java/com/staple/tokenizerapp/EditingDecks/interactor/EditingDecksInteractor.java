@@ -2,11 +2,13 @@ package com.staple.tokenizerapp.EditingDecks.interactor;
 
 import android.util.Log;
 
+import com.staple.tokenizerapp.EditingDecks.entity.DeckChanges;
 import com.staple.tokenizerapp.EditingDecks.view.CardAdapter;
 import com.staple.tokenizerapp.PickingDecks.entity.Card;
 import com.staple.tokenizerapp.PickingDecks.entity.Deck;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import retrofit2.Call;
@@ -21,9 +23,11 @@ public class EditingDecksInteractor
     private CardAdapter adapter;
     private CardApi cardApi;
     private Deck currentDeck;
+    private DeckChanges deckChanges;
 
-    public EditingDecksInteractor(CardAdapter adapter, Deck currentDeck)
+    public EditingDecksInteractor(CardAdapter adapter, Deck currentDeck, DeckChanges deckChanges)
     {
+        this.deckChanges = deckChanges;
         this.currentDeck = currentDeck;
         this.cardList = new ArrayList<>();
         this.adapter = adapter;
@@ -72,4 +76,50 @@ public class EditingDecksInteractor
 
     }
 
+    public void deleteCardFromDeck(Card card)
+    {
+        Iterator<Card> iterator = cardList.iterator();
+        while (iterator.hasNext())
+        {
+            Card item = iterator.next();
+            if (item.getId() == card.getId())
+            {
+                deckChanges.getDeletedCards().add(item);
+                iterator.remove();
+            }
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    public void addCardToDeck(Card chosenCard)
+    {
+        Iterator<Card> iterator = cardList.iterator();
+        while (iterator.hasNext())
+        {
+            Card item = iterator.next();
+            if (item.getId() == chosenCard.getId())
+            {
+                return;
+            }
+        }
+        deckChanges.getAddedCards().add(chosenCard);
+        cardList.add(chosenCard);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void sendChanges()
+    {
+        Call<Boolean> call = cardApi.postDeckChanges(deckChanges);
+        call.enqueue(new Callback<Boolean>() {
+            @Override
+            public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                Log.d("DECK CHANGE", "ALL SET");
+            }
+
+            @Override
+            public void onFailure(Call<Boolean> call, Throwable t) {
+                Log.d("DECK CHANGE", "ERR");
+            }
+        });
+    }
 }

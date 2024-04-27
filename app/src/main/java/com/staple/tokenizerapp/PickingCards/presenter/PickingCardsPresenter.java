@@ -1,5 +1,10 @@
 package com.staple.tokenizerapp.PickingCards.presenter;
 
+import android.app.Activity;
+import android.content.Intent;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.staple.tokenizerapp.EditingDecks.interactor.EditingDecksInteractor;
 import com.staple.tokenizerapp.EditingDecks.view.EditingDecksActivity;
 import com.staple.tokenizerapp.PickingCards.interactor.PickingCardsInteractor;
@@ -19,7 +24,12 @@ public class PickingCardsPresenter
 
     public void onCardClick(Card card)
     {
-        //TODO on card click
+        Intent resultIntent = new Intent();
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        resultIntent.putExtra("card", gson.toJson(card));
+        view.setResult(Activity.RESULT_OK, resultIntent);
+        view.finish();
     }
 
     public void onQueryTextChange(String text)

@@ -25,12 +25,22 @@ public class PickingDecksPresenter
             router.routeToEditingDecks(deck);
             return;
         }
-        DeckActionsFragment deckActionsFragment = new DeckActionsFragment(() -> { router.routeToEditingDecks(deck); });
+        DeckActionsFragment deckActionsFragment = new DeckActionsFragment(() -> { router.routeToEditingDecks(deck); }, () -> { interactor.deleteDeck(deck); });
         deckActionsFragment.show(view.getSupportFragmentManager(), "deck_actions_dialog");
     }
 
     public void onQueryTextChange(String text)
     {
         interactor.filterList(text);
+    }
+
+    public void onResume()
+    {
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        interactor.fetchDecks();
     }
 }

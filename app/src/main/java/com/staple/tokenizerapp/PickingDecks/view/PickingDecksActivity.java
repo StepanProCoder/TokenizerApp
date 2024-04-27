@@ -58,6 +58,13 @@ public class PickingDecksActivity extends AppCompatActivity
         presenter = new PickingDecksPresenter(this);
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        presenter.onResume();
+    }
+
     public DeckAdapter getAdapter()
     {
         return adapter;

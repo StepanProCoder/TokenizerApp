@@ -15,5 +15,8 @@ public interface DeckApi
 {
     @GET("decks/")
     Call<List<Deck>> getDecks();
+
+    @POST("deletedeck/")
+    Call<Boolean> deleteDeck(@Body Deck deck);
 }
 
