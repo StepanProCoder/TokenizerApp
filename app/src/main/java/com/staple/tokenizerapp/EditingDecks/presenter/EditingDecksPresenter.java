@@ -35,5 +35,10 @@ public class EditingDecksPresenter
     {
         //TODO send changes
     }
+
+    public void onQueryTextChange(String text)
+    {
+        interactor.filterList(text);
+    }
 }
 

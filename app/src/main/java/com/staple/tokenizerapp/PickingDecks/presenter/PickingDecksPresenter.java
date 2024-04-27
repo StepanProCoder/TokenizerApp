@@ -28,4 +28,9 @@ public class PickingDecksPresenter
         DeckActionsFragment deckActionsFragment = new DeckActionsFragment(() -> { router.routeToEditingDecks(deck); });
         deckActionsFragment.show(view.getSupportFragmentManager(), "deck_actions_dialog");
     }
+
+    public void onQueryTextChange(String text)
+    {
+        interactor.filterList(text);
+    }
 }

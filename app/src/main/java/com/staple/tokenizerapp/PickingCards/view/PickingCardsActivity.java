@@ -1,6 +1,7 @@
 package com.staple.tokenizerapp.PickingCards.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +26,20 @@ public class PickingCardsActivity extends AppCompatActivity {
     private PickingCardsAdapter adapter;
     private PickingCardsPresenter presenter;
     private Deck currentDeck;
+    private SearchView searchView;
+
+    private SearchView.OnQueryTextListener onQueryTextListener = new SearchView.OnQueryTextListener() {
+        @Override
+        public boolean onQueryTextSubmit(String query) {
+            return false;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String newText) {
+            presenter.onQueryTextChange(newText);
+            return true;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +53,9 @@ public class PickingCardsActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_picking_cards);
         recyclerView = findViewById(R.id.pickingCardsRecyclerView);
+        searchView = findViewById(R.id.pickingCardsSearchView);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(onQueryTextListener);
         textView = findViewById(R.id.deckNameTextView);
         textView.setText(currentDeck == null ? "Choose a card" : currentDeck.getName());
 

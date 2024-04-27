@@ -2,6 +2,7 @@ package com.staple.tokenizerapp.EditingDecks.view;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,12 +26,26 @@ public class EditingDecksActivity extends AppCompatActivity
     private RecyclerView recyclerView;
     private CardAdapter adapter;
     private EditText deckNameEditText;
+    private SearchView searchView;
 
     private OnBackPressedCallback onBackPressedCallback = new OnBackPressedCallback(true) {
         @Override
         public void handleOnBackPressed()
         {
             presenter.sendChanges();
+        }
+    };
+
+    private SearchView.OnQueryTextListener onQueryTextListener = new SearchView.OnQueryTextListener() {
+        @Override
+        public boolean onQueryTextSubmit(String query) {
+            return false;
+        }
+
+        @Override
+        public boolean onQueryTextChange(String newText) {
+            presenter.onQueryTextChange(newText);
+            return true;
         }
     };
 
@@ -48,6 +63,9 @@ public class EditingDecksActivity extends AppCompatActivity
         setContentView(R.layout.activity_editing_decks);
         recyclerView = findViewById(R.id.editingDecksRecyclerView);
         deckNameEditText = findViewById(R.id.deckNameEditText);
+        searchView = findViewById(R.id.editingDecksSearchView);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(onQueryTextListener);
         String hint = currentDeck.getName() == null ? "Deck Name" : currentDeck.getName();
         deckNameEditText.setHint(hint);
 

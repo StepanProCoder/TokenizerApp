@@ -5,13 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/editTextCardView"
-        android:layout_width="329dp"
-        android:layout_height="42dp"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/pickingCardsSearchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/search_view_bg"
+        app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:queryHint="Search here" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/editTextCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pickingCardsSearchView"
+        app:layout_editor_absoluteY="55dp">
 
         <TextView
             android:id="@+id/deckNameTextView"
@@ -26,7 +39,7 @@
         android:id="@+id/pickingCardsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="5dp"
         android:clipToPadding="false"
         android:padding="8dp"
         app:layout_constraintEnd_toEndOf="parent"

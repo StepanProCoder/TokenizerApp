@@ -58,4 +58,19 @@ public class PickingDecksInteractor
             }
         });
     }
+
+    public void filterList(String text)
+    {
+        List<Deck> filteredList = new ArrayList<Deck>();
+        for (Deck item: deckList)
+        {
+            if(item.getName().toLowerCase().contains(text.toLowerCase()))
+            {
+                filteredList.add(item);
+            }
+        }
+
+        adapter.setDeckList(filteredList);
+        adapter.notifyDataSetChanged();
+    }
 }

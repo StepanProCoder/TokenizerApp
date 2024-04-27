@@ -48,6 +48,22 @@ public class PickingCardsInteractor
         }
     }
 
+    public void filterList(String text)
+    {
+        List<Card> filteredList = new ArrayList<Card>();
+        for (Card item: cardList)
+        {
+            if(item.getName().toLowerCase().contains(text.toLowerCase()))
+            {
+                filteredList.add(item);
+            }
+        }
+
+        adapter.setCardList(filteredList);
+        adapter.notifyDataSetChanged();
+
+    }
+
     private void requestAllCards()
     {
         Log.d("REQUEST", "ALL CARDS");

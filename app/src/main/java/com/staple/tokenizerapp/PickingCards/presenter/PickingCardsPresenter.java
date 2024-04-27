@@ -21,5 +21,11 @@ public class PickingCardsPresenter
     {
         //TODO on card click
     }
+
+    public void onQueryTextChange(String text)
+    {
+        interactor.filterList(text);
+    }
+
 }
 
