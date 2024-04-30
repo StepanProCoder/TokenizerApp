@@ -21,4 +21,7 @@ public interface CardApi
 
     @POST("deckchange/")
     Call<Boolean> postDeckChanges(@Body DeckChanges deckChanges);
+
+    @POST("allperm/")
+    Call<List<String>> postPlacingCard(@Body Card card);
 }

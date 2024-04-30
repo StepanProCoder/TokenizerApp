@@ -62,6 +62,7 @@ public class PickingDecksActivity extends AppCompatActivity
     protected void onResume()
     {
         super.onResume();
+        searchView.clearFocus();
         presenter.onResume();
     }
 

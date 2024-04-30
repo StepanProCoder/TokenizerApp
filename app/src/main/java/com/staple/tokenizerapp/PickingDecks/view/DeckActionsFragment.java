@@ -13,10 +13,12 @@ public class DeckActionsFragment extends DialogFragment {
 
     private Runnable routeToEditingLambda;
     private Runnable deleteDeckLambda;
-    public DeckActionsFragment(Runnable routeToEditingLambda, Runnable deleteDeckLambda)
+    private Runnable routeToTableTopLambda;
+    public DeckActionsFragment(Runnable routeToEditingLambda, Runnable deleteDeckLambda, Runnable routeToTableTopLambda)
     {
         this.routeToEditingLambda = routeToEditingLambda;
         this.deleteDeckLambda = deleteDeckLambda;
+        this.routeToTableTopLambda = routeToTableTopLambda;
     }
 
     @Override
@@ -34,6 +36,7 @@ public class DeckActionsFragment extends DialogFragment {
                                 deleteDeckLambda.run();
                                 break;
                             case 2:
+                                routeToTableTopLambda.run();
                                 break;
                         }
                     }

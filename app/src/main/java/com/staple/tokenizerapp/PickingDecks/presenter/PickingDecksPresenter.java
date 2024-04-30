@@ -25,7 +25,7 @@ public class PickingDecksPresenter
             router.routeToEditingDecks(deck);
             return;
         }
-        DeckActionsFragment deckActionsFragment = new DeckActionsFragment(() -> { router.routeToEditingDecks(deck); }, () -> { interactor.deleteDeck(deck); });
+        DeckActionsFragment deckActionsFragment = new DeckActionsFragment(() -> { router.routeToEditingDecks(deck); }, () -> { interactor.deleteDeck(deck); }, () -> { router.routeToVirtualTableTop(deck); });
         deckActionsFragment.show(view.getSupportFragmentManager(), "deck_actions_dialog");
     }
 
@@ -37,7 +37,7 @@ public class PickingDecksPresenter
     public void onResume()
     {
         try {
-            Thread.sleep(200);
+            Thread.sleep(250);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

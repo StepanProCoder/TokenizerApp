@@ -17,6 +17,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".VirtualTableTop.view.VirtualTableTopActivity"
+            android:exported="false" />
+        <activity
             android:name=".PickingCards.view.PickingCardsActivity"
             android:exported="false" />
         <activity

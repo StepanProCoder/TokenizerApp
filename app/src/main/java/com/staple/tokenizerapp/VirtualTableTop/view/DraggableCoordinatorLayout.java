@@ -1,4 +1,4 @@
-package com.staple.tokenizerapp;
+package com.staple.tokenizerapp.VirtualTableTop.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
