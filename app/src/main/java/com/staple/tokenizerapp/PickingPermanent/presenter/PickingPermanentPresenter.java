@@ -85,5 +85,14 @@ public class PickingPermanentPresenter
         interactor.filterList(text);
     }
 
+    public void onResume()
+    {
+        try {
+            Thread.sleep(250);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        interactor.requestPermanents();
+    }
 }
 

@@ -65,6 +65,7 @@ public class PickingPermanentInteractor
             call.enqueue(new Callback<List<Card>>() {
                 @Override
                 public void onResponse(Call<List<Card>> call, Response<List<Card>> response) {
+                    cardList.clear();
                     cardList.addAll(response.body());
                     adapter.notifyDataSetChanged();
                 }
@@ -81,6 +82,7 @@ public class PickingPermanentInteractor
             call.enqueue(new Callback<List<Token>>() {
                 @Override
                 public void onResponse(Call<List<Token>> call, Response<List<Token>> response) {
+                    tokenList.clear();
                     tokenList.addAll(response.body());
                     adapter.notifyDataSetChanged();
                 }
@@ -97,6 +99,7 @@ public class PickingPermanentInteractor
             call.enqueue(new Callback<List<Emblem>>() {
                 @Override
                 public void onResponse(Call<List<Emblem>> call, Response<List<Emblem>> response) {
+                    emblemList.clear();
                     emblemList.addAll(response.body());
                     adapter.notifyDataSetChanged();
                 }
@@ -113,6 +116,7 @@ public class PickingPermanentInteractor
             call.enqueue(new Callback<List<Permcounter>>() {
                 @Override
                 public void onResponse(Call<List<Permcounter>> call, Response<List<Permcounter>> response) {
+                    permcounterList.clear();
                     permcounterList.addAll(response.body());
                     adapter.notifyDataSetChanged();
                 }
@@ -129,6 +133,7 @@ public class PickingPermanentInteractor
             call.enqueue(new Callback<List<Playercounter>>() {
                 @Override
                 public void onResponse(Call<List<Playercounter>> call, Response<List<Playercounter>> response) {
+                    playercounterList.clear();
                     playercounterList.addAll(response.body());
                     adapter.notifyDataSetChanged();
                 }

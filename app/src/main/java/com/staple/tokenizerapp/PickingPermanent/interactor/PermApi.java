@@ -1,5 +1,6 @@
 package com.staple.tokenizerapp.PickingPermanent.interactor;
 
+import com.staple.tokenizerapp.EditingPermanents.entity.PermanentChanges;
 import com.staple.tokenizerapp.PickingDecks.entity.Card;
 import com.staple.tokenizerapp.PickingPermanent.entity.Emblem;
 import com.staple.tokenizerapp.PickingPermanent.entity.Permcounter;
@@ -44,5 +45,8 @@ public interface PermApi
 
     @POST("permeditplayercounters/")
     Call<Boolean> deletePlayercounter(@Body Playercounter playercounter);
+
+    @POST("permchanges/")
+    Call<Boolean> submitPermChanges(@Body PermanentChanges permanentChanges);
 
 }

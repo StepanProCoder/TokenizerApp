@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="16dp"
+        android:radius="32dp"
+        android:elevation="4dp"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editTextPermName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Permanent Name"
+                android:gravity="center"/>
+
+            <EditText
+                android:id="@+id/editTextPicUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Picture URL"
+                android:gravity="center"/>
+
+            <Button
+                android:id="@+id/buttonBond"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bond" />
+
+            <Button
+                android:id="@+id/buttonSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</RelativeLayout>

@@ -4,6 +4,7 @@ import android.content.Intent;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.staple.tokenizerapp.EditingPermanents.view.EditingPermanentsActivity;
 import com.staple.tokenizerapp.PickingCards.view.PickingCardsActivity;
 import com.staple.tokenizerapp.PickingDecks.entity.Card;
 import com.staple.tokenizerapp.PickingPermanent.entity.Emblem;
@@ -23,7 +24,7 @@ public class PickingPermanentRouter
 
     public void routeToEditingPerms(Card card, Token token, Emblem emblem, Permcounter permcounter, Playercounter playercounter)
     {
-        Intent intent = new Intent(view, VirtualTableTopActivity.class); //HERE
+        Intent intent = new Intent(view, EditingPermanentsActivity.class); //HERE
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
         if (card != null) {

@@ -56,6 +56,12 @@ public class PickingPermanentActivity extends AppCompatActivity
         presenter = new PickingPermanentPresenter(this, mode);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        presenter.onResume();
+    }
+
     public PermanentAdapter getAdapter()
     {
         return adapter;
