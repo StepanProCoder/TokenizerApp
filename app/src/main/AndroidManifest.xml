@@ -17,6 +17,17 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".MainMenu.MainMenuActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".PickingPermanent.view.PickingPermanentActivity"
+            android:exported="false"/>
+        <activity
             android:name=".VirtualTableTop.view.VirtualTableTopActivity"
             android:exported="false" />
         <activity
@@ -30,13 +41,7 @@
             android:exported="false" />
         <activity
             android:name=".PickingDecks.view.PickingDecksActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="false"/>
     </application>
 
 </manifest>

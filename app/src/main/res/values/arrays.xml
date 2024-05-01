@@ -8,4 +8,8 @@
     <string-array name="card_actions_array">
         <item>Delete</item>
     </string-array>
+    <string-array name="perm_actions_array" >
+        <item>Redact</item>
+        <item>Delete</item>
+    </string-array>
 </resources>

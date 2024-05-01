@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <!-- Заголовок -->
+    <TextView
+        android:id="@+id/title_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Tokenizer"
+        android:textColor="#673AB7"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <!-- Основное меню -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <!-- Левая колонка -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/cards_button"
+                android:layout_width="124dp"
+                android:layout_height="96dp"
+                android:layout_margin="8dp"
+                android:text="Cards" />
+
+            <Button
+                android:id="@+id/tokens_button"
+                android:layout_width="124dp"
+                android:layout_height="96dp"
+                android:layout_margin="8dp"
+                android:text="Tokens" />
+
+            <Button
+                android:id="@+id/emblems_button"
+                android:layout_width="124dp"
+                android:layout_height="96dp"
+                android:layout_margin="8dp"
+                android:text="Emblems" />
+        </LinearLayout>
+
+        <!-- Правая колонка -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/permanent_counters_button"
+                android:layout_width="124dp"
+                android:layout_height="96dp"
+                android:layout_margin="8dp"
+                android:text="Permanent Counters" />
+
+            <Button
+                android:id="@+id/player_counters_button"
+                android:layout_width="124dp"
+                android:layout_height="96dp"
+                android:layout_margin="8dp"
+                android:text="Player Counters" />
+
+            <Button
+                android:id="@+id/decks_button"
+                android:layout_width="124dp"
+                android:layout_height="96dp"
+                android:layout_margin="8dp"
+                android:text="Decks" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Секретная кнопка -->
+    <Button
+        android:id="@+id/secret_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Secret button" />
+
+</LinearLayout>
